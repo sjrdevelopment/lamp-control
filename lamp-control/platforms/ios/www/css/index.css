@@ -1,0 +1,155 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#3A3A3A;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+    color:#ffffff;
+}
+
+/* Portrait layout (default) */
+.app {
+    
+    position:relative;             /* position in the center of the screen */
+    height: auto;                  /* text area height */
+    width:300px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: 0;
+    margin-left: calc(50% - 150px);
+    margin-top: 15%;
+
+ /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 0;  /* padding-top + padding-bottom + text area = image height */
+        margin: 0;
+        margin-left: calc(50% - 118px);
+        margin-top: 15%;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+.btn {
+    border: 1px solid #3A3A3A;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 40px auto;
+    background-image: radial-gradient(#0FC70F, #3A3A3A);
+    font-size: 34px;
+    font-weight: bold;
+    color: #FFF;
+    -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+    transition: all 1s;
+}
+
+.btn.off {
+    background-image: radial-gradient(#E90000, #3A3A3A);
+    width: 130px;
+    height: 130px;
+    font-size: 24px;
+    margin-top:74px;
+}
+
+#connectButton {
+    border: 1px solid #FFF;
+    width: 140px;
+    height: 60px;
+    background-color: #E4FDFF;
+    font-size: 18px;
+    margin: 16px 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#status {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: -130px 0 130px 0;
+}
+
+#status.not-connected {
+    color:#7A7A7A;
+
+}
