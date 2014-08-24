@@ -57,6 +57,8 @@ var app = {
     Connects if not connected, and disconnects if connected:
 */
     manageConnection: function() {
+        $('.app').hide();
+        $('.loader').addClass('active');
 
         // connect() will get called only if isConnected() (below)
         // returns failure. In other words, if not connected, then connect:
@@ -87,6 +89,8 @@ var app = {
 */
     openPort: function() {
         // if you get a good Bluetooth serial connection:
+        $('.loader').removeClass('active');
+        $('.app').show();
 
         connectButton.innerHTML = "Disconnect";
         // set up a listener to listen for newlines
